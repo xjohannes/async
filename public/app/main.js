@@ -28,11 +28,23 @@ errValue.catch(function(err) {
 })*/
 
 // Generators
+function bar(y) {
+	console.log("BAR",y);
+}
 function *foo(x) {
-	console.log("INNSIDE pear", yield x);
-	console.log("INNSIDE apple", yield 2);
+	console.log("INNSIDE 1: pear", yield x);
+	console.log("INNSIDE 2: apple", yield 2);
+	bar(yield 3);
+	return "FINITO";
 }
 
-var gen = foo(3);
-console.log("OUTSIDE:", gen.next("PEAR"));
-console.log("OUTSIDE:", gen.next("APPLE"));
+var genTo = foo(1);
+for(var elem of genTo) {
+	console.log("FOR loop", elem);
+}
+var gen = foo(1);
+console.log("OUTSIDE 1:", gen.next("PEAR"));
+console.log("OUTSIDE 2:", gen.next("APPLE"));
+console.log("OUTSIDE 3:", gen.next("BANANA"));
+console.log("OUTSIDE 4:", gen.next("MANGO"));
+console.log("OUTSIDE 5:", gen.next("ORANGE"));
