@@ -6,7 +6,7 @@ app.use(express.static('public'))
 
 app.get('/firstAsync', (request, response) => {
 	setTimeout(function() {
-		response.send('First Async');
+		response.send('secondAsync');
 	}, 500)
 })
 app.get('/secondAsync', (request, response) => {
@@ -14,7 +14,7 @@ app.get('/secondAsync', (request, response) => {
 		if(Math.ceil(Math.random() * 100) % 10 >= 9) {
 			throw new Error('Something went wrong');
 		}
-		response.status(200).send("SecondAsync") 
+		response.status(200).send("This is the result of the second async call") 
 	}, 300)
 })
 app.get('/errorResponse', (request, response) => {
