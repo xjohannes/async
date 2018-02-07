@@ -1,10 +1,18 @@
 import {url, path, error400Path, throwErrorPath} from "./thirdpartModules.js";
 import {callbackRequest, promiseRequest} from "./thirdpartModules.js";
 import {mainAsync} from "./asyncAwaitExample.js";
+import {helloCallbackHell} from "./helloCallbackHell.js";
 import {synchronousCallbackErrorHandling} from "./synchronousCallbackErrorHandling.js";
 import {asynchronousCallbackErrorHandling} from "./asynchronousCallbackErrorHandling.js";
+import {friday} from "./friday.js";
 
-asynchronousCallbackErrorHandling(url);
+(function main () {
+	friday();
+	//synchronousCallbackErrorHandling();
+	//helloCallbackHell();
+}());
+
+//asynchronousCallbackErrorHandling(url);
 //asynchronousCallbackErrorHandling(url + error400Path);
 //asynchronousCallbackErrorHandling(url + throwErrorPath);
 //////////////////////////////////////////////
@@ -108,7 +116,7 @@ function *mainCallback() {
 
 runGenerator(mainPromise);
 */
-console.log("CONTINUING PROGRAM");
+//console.log("CONTINUING PROGRAM");
 
 
 /*try {
