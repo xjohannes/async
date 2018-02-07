@@ -1,0 +1,17 @@
+{
+    "name": "asyncAwait",
+    "version": "0.0.1",
+    "author": "Johannes Akse",
+    "description": "Code examples for an async await talk",
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.10"
+    },
+    "scripts": {
+        "start": "node ./server.js"
+    },
+    "dependencies": {
+        "express": "~3.4.7",
+        "json-lint": "~0.1.0"
+    }
+}
