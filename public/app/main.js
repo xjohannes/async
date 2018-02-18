@@ -11,9 +11,9 @@ import {loadStoryCallback, loadStoryPromise, loadStoryAsyncAwait} from "./story.
 
 (function main () {
 	//friday();
-	//loadStoryCallback();
+	loadStoryCallback();
 	//loadStoryPromise();
-	loadStoryAsyncAwait();
+	//loadStoryAsyncAwait();
 	//synchronousCallbackErrorHandling();
 	//helloCallbackHell();
 	//generators();

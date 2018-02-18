@@ -1,14 +1,14 @@
 import {url, path, error400Path, throwErrorPath} from "./thirdpartModules.js";
 
 function getJSONCallback (story, err, callback) {
-  throw new Error("MY error");
+  //throw new Error("MY error");
   $.ajax(url + story)
     .then(callback)
     .catch(err);
 }
 
 function getJSON(story) {
-  throw new Error("MY error");
+  //throw new Error("MY error");
   return $.ajax(url + story);
 }
 
@@ -19,24 +19,30 @@ function addTextToPage(elemType, text) {
   node.appendChild(textnode);                             
   document.getElementById("story").appendChild(node); 
 }
-function sortChapters() {
-
+function sortChapters(a, b) {
+  console.log("Sorting chapters", a, b);
+  return parseInt(a.chapter) - parseInt(b.chapter);
 }
 function loadStoryCallback() {
   var chapters = [];
   $('#story').addClass('spinner');
 try{
   getJSONCallback('story', function(err) {
-    addTextToPage('p', "Argh, broken: " + err);
+    addTextToPage('p', "Argh, first broken: " + err);
   }, function(story) {
     addTextToPage('h2', story.title);
     story.chapterURLs.map(function(element) {
       getJSONCallback(element, function(err) {
-        addTextToPage('p', "Chapter Argh, broken: " + err);
+        addTextToPage('p', "Chapter Argh, second broken: " + err);
       }, function(chapter) {
-
-        if(chapters.length >= 3) {
-          sortChapters();
+        if(chapters.length >= story.chapterURLs.length-1) {
+          chapters.push(chapter);
+          chapters.sort(sortChapters);
+          $('#story').removeClass('spinner');
+          chapters.map(function(chapter) {
+            addTextToPage('h3', chapter.title);
+            addTextToPage('p', chapter.body);
+          });
         } else {
           chapters.push(chapter);
         }

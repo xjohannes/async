@@ -36,6 +36,7 @@ app.get('/return400Response', (request, response) => {
 // Story
 app.get('/story', (req, res) => {
 	setTimeout(function() {
+		//res.status(404).send("Not found");
 		res.status(200).send({"title":"The tale of two towers - the Callback and the Promise", "chapterURLs": ["story/1","story/2","story/3"]});
 	}, 500);
 });
@@ -47,7 +48,7 @@ app.get('/story/:chapter', (req, res) => {
 	console.log("CHAPTER", data);
 	setTimeout(function() {
 		res.status(200).send(data);
-	}, (Math.random() * 10000));
+	}, (Math.random() * 1000));
 })
 
 app.listen(port, () => {
