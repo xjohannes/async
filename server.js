@@ -1,3 +1,6 @@
+const chapters = require('./public/data/chapters.json');
+const _ = require('lodash');
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -28,6 +31,23 @@ app.get('/return400Response', (request, response) => {
 		//response.status(500).send('Noe gikk galt'); 		
 		response.status(400).send('Bad, bad request');
 	}, 1300)
+})
+
+// Story
+app.get('/story', (req, res) => {
+	setTimeout(function() {
+		res.status(200).send({"title":"The tale of two towers - the Callback and the Promise", "chapterURLs": ["story/1","story/2","story/3"]});
+	}, 500);
+});
+app.get('/story/:chapter', (req, res) => {
+	console.log("req.params", req.params.chapter);
+	//console.log("Chapter", chapters);
+	var data = _.find(chapters, (obj) => obj.chapter === req.params.chapter);
+
+	console.log("CHAPTER", data);
+	setTimeout(function() {
+		res.status(200).send(data);
+	}, (Math.random() * 10000));
 })
 
 app.listen(port, () => {

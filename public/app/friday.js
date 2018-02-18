@@ -7,8 +7,6 @@ function friday () {
 	goEatChocolate();
 	//doSomeMoreCoding();
 	goHome();
-
-	friday();
 }
 function attendMeeting (durationOfMeeting) {
 	console.log("Walking to meeting room");
@@ -72,7 +70,7 @@ function goEatChocolate () {
 
 function makeSomeoneFetchChocolate(ttfb) {
 	const timeToFindBjorg = ttfb;
-	setTimeout(function {
+	setTimeout(function () {
 		findBjorg();
 		serveChocolate(function() {
 		console.log("Chocolate is served");
