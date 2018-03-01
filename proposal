@@ -4,7 +4,7 @@ Async Await - Make asynchronous code look synchronous.
 Abstract:
 Asynchronous code can be hard to write and hard to reason about. The ECMAScript 2017 edition of JavaScript introduces two new keywords, async and await, enabling you to write asynchronous code in a synchronous looking way. This talk will introduce the two new keywords and explain how Generators and Promises work together giving us this new way to write asynchronous JavaScript.
 
-Outline:
+Outline:(May be included in the program but was intended for the committee only)
 This talk will start out giving a short account of the JavaScript stack, message queue, event loop and the run-to-completion rule of a JavaScript program. This is done to make a foundation for understanding how a one-threaded language implementation can handle asynchronous programs in the firs place. 
 
 As a interlude the talk will, very briefly, recount some of the problems associated with asynchronous JavaScript code (callback hell, scoping difficulties and error handling).
@@ -13,6 +13,6 @@ The following part will concentrate on explaining JavaScript Generators with rea
 
 The talk will be rounded of with examples and ideas of how to utilize this new way of writing asynchronous JavaScript.
 
-After note:
+After note: (not to be included in the program)
 The talk will be held in Norwegian. I would prefer to give this talk pretty early the first day due to a tendency to become ill if the waves are to high. 
 
