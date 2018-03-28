@@ -1,3 +1,5 @@
+//import {errorFunc, path, url} from "./thirdpartModules";
+
 function callbackRequest (url, success, error) {
   const xhr = new XMLHttpRequest();
   xhr.open("GET", url); // true
@@ -13,9 +15,12 @@ function callbackRequest (url, success, error) {
     } else {
       success(xhr.responseText); 
     }
-  }
+  };
 	 xhr.send();
 }
+
+//////////////////////////////////////////////
+/////////////// Callback Async ///////////////
 
 function asynchronousCallbackErrorHandling (url) {
   try{
@@ -29,7 +34,26 @@ function asynchronousCallbackErrorHandling (url) {
     console.log("CAUGHT an Asynchronous error:");
   } 
 }
-export {asynchronousCallbackErrorHandling};
+/////////////////////////////////////////////////////
+function asynchronousCallbackErrorHandling2 (url) {
+  try {
+    callbackRequest(url + path, function(result) {
+      try {
+        callbackRequest(url + result, function() {
+          console.log("Asynchronous callback without generators");
+        }, errorFunc);
+      }
+      catch (err) {
+        console.log("Callback err 2:", err);
+      }
+    }, errorFunc);
+  }
+  catch (err) {
+    console.log("Callback err 1:", err);
+  }
+}
+
+export {asynchronousCallbackErrorHandling, asynchronousCallbackErrorHandling2};
 
 /*function callbackRequestNodeWay (url, callback) {
   const xhr = new XMLHttpRequest();

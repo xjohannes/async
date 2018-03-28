@@ -1,6 +1,7 @@
 //////////////////////////////////////////////
 ////////////////// ASYNC AWAIT //////////////
 async function mainAsync(url, path) {
+	console.log("HEI");
 	try {
 		let firstResponse = await fetch(url + path);
 		var mainResult1 = await firstResponse.text();

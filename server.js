@@ -6,12 +6,21 @@ const app = express()
 const port = 3000
 
 app.use(express.static('public'))
-
+app.get('/kiwis', (request, response) => {
+  setTimeout(function() {
+    response.status(200).send('Sending Kiwis fresh from New Zealand');
+  }, 500)
+});
+app.get('/newZealand', (request, response) => {
+  setTimeout(function() {
+    response.status(200).send('kiwis');
+  }, 500)
+});
 app.get('/firstAsync', (request, response) => {
 	setTimeout(function() {
 		response.status(200).send('secondAsync');
 	}, 500)
-})
+});
 app.get('/secondAsync', (request, response) => {
 	setTimeout(function() {
 		if(Math.ceil(Math.random() * 100) % 10 >= 9) {

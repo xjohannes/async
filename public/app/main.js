@@ -1,22 +1,39 @@
 import {url, path, error400Path, throwErrorPath} from "./thirdpartModules.js";
-import {callbackRequest, promiseRequest} from "./thirdpartModules.js";
+
+import {callbackRequest, promiseRequest, errorFunc} from "./thirdpartModules.js";
 import {mainAsync} from "./asyncAwaitExample.js";
 import {helloCallbackHell} from "./helloCallbackHell.js";
 import {synchronousCallbackErrorHandling} from "./synchronousCallbackErrorHandling.js";
-import {asynchronousCallbackErrorHandling} from "./asynchronousCallbackErrorHandling.js";
+import {asynchronousCallbackErrorHandling} from "./asynchronousCallbackErrorhandling.js";
 import {friday} from "./friday.js";
+
+import  {asyncWrapper}  from "./coroutineWrapper.js";
+
+import {runGeneratorEx} from "./promiseYielder.js";
 import {generators} from "./generators.js";
 import {loadStoryCallback, loadStoryPromise, loadStoryAsyncAwait} from "./story.js";
 
-
 (function main () {
-	//friday();
-	loadStoryCallback();
+	console.log("////////////// Start of program //////////////");
+  //generators();
+  runGeneratorEx();
+  //friday();
+
+
+
+  //coroutines(promiseGenerator);
+  //mainAsync(url, path);
+
+	//loadStoryCallback();
 	//loadStoryPromise();
 	//loadStoryAsyncAwait();
 	//synchronousCallbackErrorHandling();
 	//helloCallbackHell();
-	//generators();
+
+  //asyncWrapper(iteratorPromise);
+  //let it = asyncWrapper(promiseGenerator);
+  //it();
+	console.log("////////////// End of program //////////////");
 }());
 
 //asynchronousCallbackErrorHandling(url);
@@ -24,85 +41,18 @@ import {loadStoryCallback, loadStoryPromise, loadStoryAsyncAwait} from "./story.
 //asynchronousCallbackErrorHandling(url + throwErrorPath);
 //////////////////////////////////////////////
 ////////////////// ASYNC AWAIT //////////////
+// Async functions return a promise which can be used to get
+// hold of data from outside the async function
 /*mainAsync(url, path)
 .then(function(data) {
 	console.log("Result from Async await:", data);
 });*/
 
-//////////////////////////////////////////////
-/////////////// Callback Async ///////////////
-/*try {
-	callbackRequest(url + path, function(result) {
-		try {
-			callbackRequest(url + result, function(result) {
-				console.log("Asynchronous callback without generators");
-			}, errorFunasyncc);
-		}
-		catch (err) {
-			console.log("Callback err 2:", err);
-		}
-	}, errorFunc);
-}
-catch (err) {
-	console.log("Callback err 1:", err);
-}*/
 
 
 
-//////////////////////////////////////////////
-////////// PROMISE CO-ROUTINEs ///////////////
-/*function requestPromise(url) {
-	promiseRequest(url)
-	.then(function(response) {
-		iteratorPromise.next(response);
-	})
-	.catch(function(err) {
-		iteratorPromise.throw(err);
-	});
-}*/
 
-// requestPromise using fetch()
-/*function requestPromiseFetch(url) {
-	fetch(url)
-	.then(function(response) {
-		response.text()
-		.then(function(data) {
-			iteratorPromise.next(data);
-		});
-	})
-	.catch(errorFunc);
-}
 
-function *mainPromise() {
-	try{
-		var mainResult1 = yield requestPromiseFetch(url + path);
-	}
-	catch (err) {
-		console.log("Promise Err")
-	}
-	var mainResult2 = yield promiseRequest(url + mainResult1);
-	console.log("Promise GEN result:", mainResult2);
-}
-
-var iteratorPromise = mainPromise();
-iteratorPromise.next();
-
-var runGenerator = function(gen) {
-	var it = gen(), ret;
-
-	(function iterate(val) {
-		ret = it.next(val);
-		if(!ret.done) {
-			if(ret.value && typeof ret.value === 'object' && "then" in ret.value) {
-				ret.value.then(iterate);
-			} else {
-				setTimeout(function() {
-					iterate(ret.value);
-				}, 0);
-			}
-		}
-	})();
-}*/
 //////////////////////////////////////////////
 //////////// CALLBACK CO-ROUTINE /////////////
 /*function requestCallback(url) {
@@ -116,13 +66,12 @@ function *mainCallback() {
 	var mainResult3 = yield "YIELDING";
 	var mainResult2 = yield $.ajax(url + mainResult1);
 	console.log("Callback GEN result:", mainResult2);
-}
+}*/
 
 //var iteratorCallback = mainCallback();
 //iteratorCallback.next();
 
-runGenerator(mainPromise);
-*/
+
 //console.log("CONTINUING PROGRAM");
 
 

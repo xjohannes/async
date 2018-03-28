@@ -18,7 +18,7 @@ function callbackRequest (url, success, error) {
   xhr.onerror = () => error(xhr);
 
 	xhr.send();
-	throw("Callback thrown error");
+	throw("Callback throw error");
 }
 function promiseRequest (url) {
   return $.ajax(url);
@@ -26,11 +26,34 @@ function promiseRequest (url) {
 	//////////////////////////////////
 function errorFunc (err) {
 	console.log("Callback errFunc:", err);
-};
+}
+
+function requestPromise(url, generator) {
+  promiseRequest(url)
+    .then(function (response) {
+      generator.next(response);
+    })
+    .catch(function (err) {
+      fruitGenerator.throw(err);
+    });
+}
+
+// requestPromise using fetch()
+function requestPromiseFetch(url, generator) {
+  fetch(url)
+    .then(function (response) {
+      response.text()
+        .then(function (data) {
+          generator.next(data);
+        })
+        .catch(errorFunc);
+    })
+    .catch(errorFunc);
+}
 
 	
 
 
 // Exporting constants
 export {url, path, error400Path, throwErrorPath};
-export {callbackRequest, promiseRequest, errorFunc};
+export {callbackRequest, promiseRequest, errorFunc, requestPromise, requestPromiseFetch};
