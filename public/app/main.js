@@ -1,7 +1,7 @@
 import {url, path, error400Path, throwErrorPath} from "./thirdpartModules.js";
 
 import {callbackRequest, promiseRequest, errorFunc} from "./thirdpartModules.js";
-import {mainAsync} from "./asyncAwaitExample.js";
+import {mainAsync, mainAsyncFetch} from "./asyncAwaitExample.js";
 import {helloCallbackHell} from "./helloCallbackHell.js";
 import {synchronousCallbackErrorHandling} from "./synchronousCallbackErrorHandling.js";
 import {asynchronousCallbackErrorHandling} from "./asynchronousCallbackErrorhandling.js";
@@ -15,6 +15,7 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
+  mainAsyncFetch(url, path);
   //generators();
   //runGeneratorEx();
   //friday();
@@ -25,7 +26,7 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
   //mainAsync(url, path);
 
 	//loadStoryCallback();
-    asyncWrapper(loadStoryGenerator);
+	//asyncWrapper(loadStoryGenerator);
 	//loadStoryPromise();
 	//loadStoryAsyncAwait();
 	//synchronousCallbackErrorHandling();
