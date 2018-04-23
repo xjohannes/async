@@ -1,5 +1,6 @@
 // Generators
-let generators = function () {
+function generators() {
+  console.log("GENERATORS");
 
   function* fruitYielder(fruit) {
     yield fruit;
@@ -7,11 +8,18 @@ let generators = function () {
   }
 
 
-  let gen = fruitYielder("Oranges");
+  var gen = fruitYielder("Oranges");
 
   for (let elem of gen) {
     console.log(elem);
   }
+
+    // Oranges
+    // Apples
+    gen = fruitYielder("Oranges");
+
+  console.log(gen.next()); // {value: "Oranges", done: false}
+  console.log(gen.next()); // {value: "Apples", done: false}
 
   let secondGen = receiveAndYieldFruit("Oranges");
 

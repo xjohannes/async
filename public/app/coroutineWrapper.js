@@ -1,4 +1,4 @@
-let asyncWrapper = function(gen) {
+function asyncWrapper(gen) {
   let it = gen(), ret;
 
   (function iterate(val) {

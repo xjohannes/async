@@ -21,7 +21,7 @@ function callbackRequest (url, success, error) {
 	throw("Callback throw error");
 }
 function promiseRequest (url) {
-  return $.ajax(url);
+  return $.ajax(url).reject(err => console.log("Could not resolve Ajax call", err) );
 }
 	//////////////////////////////////
 function errorFunc (err) {
@@ -30,24 +30,17 @@ function errorFunc (err) {
 
 function requestPromise(url, generator) {
   promiseRequest(url)
-    .then(function (response) {
-      generator.next(response);
-    })
-    .catch(function (err) {
-      fruitGenerator.throw(err);
-    });
+    .then(response => generator.next(response))
+    .catch(err => fruitGenerator.throw(err));
 }
 
 // requestPromise using fetch()
 function requestPromiseFetch(url, generator) {
   fetch(url)
-    .then(function (response) {
+    .then(response =>
       response.text()
-        .then(function (data) {
-          generator.next(data);
-        })
-        .catch(errorFunc);
-    })
+        .then(data => generator.next(data))
+        .catch(errorFunc))
     .catch(errorFunc);
 }
 

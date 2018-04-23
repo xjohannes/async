@@ -11,12 +11,12 @@ import  {asyncWrapper}  from "./coroutineWrapper.js";
 
 import {runGeneratorEx} from "./promiseYielder.js";
 import {generators} from "./generators.js";
-import {loadStoryCallback, loadStoryPromise, loadStoryAsyncAwait} from "./story.js";
+import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncAwait} from "./story.js";
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
   //generators();
-  runGeneratorEx();
+  //runGeneratorEx();
   //friday();
 
 
@@ -25,6 +25,7 @@ import {loadStoryCallback, loadStoryPromise, loadStoryAsyncAwait} from "./story.
   //mainAsync(url, path);
 
 	//loadStoryCallback();
+    asyncWrapper(loadStoryGenerator);
 	//loadStoryPromise();
 	//loadStoryAsyncAwait();
 	//synchronousCallbackErrorHandling();
