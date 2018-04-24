@@ -1,4 +1,4 @@
-import {url, path, error400Path, throwErrorPath} from "./thirdpartModules.js";
+import {url, path, error400Path, throwErrorPath, kiwiPath} from "./thirdpartModules.js";
 
 import {callbackRequest, promiseRequest, errorFunc} from "./thirdpartModules.js";
 import {mainAsync, mainAsyncFetch} from "./asyncAwaitExample.js";
@@ -7,15 +7,18 @@ import {synchronousCallbackErrorHandling} from "./synchronousCallbackErrorHandli
 import {asynchronousCallbackErrorHandling} from "./asynchronousCallbackErrorhandling.js";
 import {friday} from "./friday.js";
 
-import  {asyncWrapper}  from "./coroutineWrapper.js";
+import  {asyncWrapper, fruitGen}  from "./coroutineWrapper.js";
 
 import {runGeneratorEx} from "./promiseYielder.js";
 import {generators} from "./generators.js";
+import {serialGenerator} from "./serialGenerator.js";
 import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncAwait} from "./story.js";
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
-  mainAsyncFetch(url, path);
+   //serialGenerator();
+	asyncWrapper(fruitGen);
+	// mainAsyncFetch(url, path);
   //generators();
   //runGeneratorEx();
   //friday();

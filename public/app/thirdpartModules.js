@@ -2,6 +2,7 @@ const url = 'http://localhost:3000/';
 const path = 'firstAsync'; 
 const error400Path = 'return400Response';
 const throwErrorPath = 'throwErrorResponse';
+const kiwiPath = 'newZealand';
 
 
 
@@ -21,7 +22,7 @@ function callbackRequest (url, success, error) {
 	throw("Callback throw error");
 }
 function promiseRequest (url) {
-  return $.ajax(url).reject(err => console.log("Could not resolve Ajax call", err) );
+  return $.ajax(url);
 }
 	//////////////////////////////////
 function errorFunc (err) {
@@ -48,5 +49,5 @@ function requestPromiseFetch(url, generator) {
 
 
 // Exporting constants
-export {url, path, error400Path, throwErrorPath};
+export {url, path, error400Path, throwErrorPath, kiwiPath};
 export {callbackRequest, promiseRequest, errorFunc, requestPromise, requestPromiseFetch};
