@@ -1,8 +1,8 @@
 // Serial generator
-function serialGenerator() {
+function serialGeneratorExample() {
   console.log("SERIAL GENERATOR");
 
-  function *serialGen() {
+  function *serialGenerator() {
     let serialNr, reset = true;
     while(true) {
       if(reset) {
@@ -20,7 +20,7 @@ function serialGenerator() {
 
 
 
-  let generateSerialNumber = serialGen();
+  let generateSerialNumber = serialGenerator();
   console.log("First serial number:", generateSerialNumber.next());
   doOtherStuff("Driving");
   console.log("Second serial number:", generateSerialNumber.next());
@@ -30,4 +30,4 @@ function serialGenerator() {
   console.log("Reset serial number:", generateSerialNumber.next(true));
   console.log("Continue program");
 }
-export {serialGenerator}
+export {serialGeneratorExample}

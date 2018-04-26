@@ -11,13 +11,18 @@ import  {asyncWrapper, fruitGen}  from "./coroutineWrapper.js";
 
 import {runGeneratorEx} from "./promiseYielder.js";
 import {generators} from "./generators.js";
-import {serialGenerator} from "./serialGenerator.js";
+import {serialGeneratorExample} from "./serialGenerator.js";
 import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncAwait} from "./story.js";
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
-   //serialGenerator();
-	asyncWrapper(fruitGen);
+    //serialGeneratorExample();
+	asyncWrapper(function* fruitGen() {
+        let mainResult1 = yield promiseRequest(url + kiwiPath);
+
+        let mainResult2 = yield promiseRequest(url + mainResult1);
+        console.log("Generator result:", mainResult2);
+    });
 	// mainAsyncFetch(url, path);
   //generators();
   //runGeneratorEx();
