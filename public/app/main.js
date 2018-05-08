@@ -16,36 +16,34 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
-    //serialGeneratorExample();
-	asyncWrapper(function* fruitGen() {
+	//serialGeneratorExample();
+  loadStoryCallback();
+	/*asyncWrapper(function* fruitGen() {
         let mainResult1 = yield promiseRequest(url + kiwiPath);
 
         let mainResult2 = yield promiseRequest(url + mainResult1);
         console.log("Generator result:", mainResult2);
-    });
-	// mainAsyncFetch(url, path);
-  //generators();
-  //runGeneratorEx();
-  //friday();
-
-
-
-  //coroutines(promiseGenerator);
-  //mainAsync(url, path);
-
-	//loadStoryCallback();
-	//asyncWrapper(loadStoryGenerator);
-	//loadStoryPromise();
-	//loadStoryAsyncAwait();
-	//synchronousCallbackErrorHandling();
-	//helloCallbackHell();
-
-  //asyncWrapper(iteratorPromise);
-  //let it = asyncWrapper(promiseGenerator);
-  //it();
+    });*/
 	console.log("////////////// End of program //////////////");
 }());
+// generators();
+// mainAsyncFetch(url, path);
 
+//runGeneratorEx();
+//friday();
+//coroutines(promiseGenerator);
+//mainAsync(url, path);
+
+//loadStoryCallback();
+//asyncWrapper(loadStoryGenerator);
+//loadStoryPromise();
+//loadStoryAsyncAwait();
+//synchronousCallbackErrorHandling();
+//helloCallbackHell();
+
+//asyncWrapper(iteratorPromise);
+//let it = asyncWrapper(promiseGenerator);
+//it();
 //asynchronousCallbackErrorHandling(url);
 //asynchronousCallbackErrorHandling(url + error400Path);
 //asynchronousCallbackErrorHandling(url + throwErrorPath);
