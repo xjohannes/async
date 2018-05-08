@@ -1,31 +1,18 @@
 {
-  "scripts": {
-    "start": "nodemon ./public/index.js --exec babel-node --presets es2015,stage-2"
-  },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "webpack": "^3.7.1"
-  },
-  "name": "async",
-  "description": "For testing and demonstrating asynchronous javascript and the new async and await keywords",
-  "version": "1.0.0",
-  "main": "server.js",
-  "dependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "express": "^4.16.1",
-    "webpack": "^3.7.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xjohannes/async.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/xjohannes/async/issues"
-  },
-  "homepage": "https://github.com/xjohannes/async#readme"
+    "name": "asyncAwait",
+    "version": "0.0.1",
+    "author": "Johannes Akse",
+    "description": "Code examples for an async await talk",
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.10"
+    },
+    "scripts": {
+        "start": "node ./server.js"
+    },
+    "dependencies": {
+        "express": "~3.4.7",
+        "json-lint": "~0.1.0",
+        "lodash": "~4.17.0"
+    }
 }
