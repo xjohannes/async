@@ -16,8 +16,10 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
 
 (function main () {
 	console.log("////////////// Start of program //////////////");
+  generators();
+  //friday();
 	//serialGeneratorExample();
-  loadStoryCallback();
+  //loadStoryCallback();
 	/*asyncWrapper(function* fruitGen() {
         let mainResult1 = yield promiseRequest(url + kiwiPath);
 
