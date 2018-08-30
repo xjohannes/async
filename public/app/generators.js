@@ -5,6 +5,7 @@ function generators() {
   function* fruitYielder(fruit) {
     yield fruit;
     yield "Apples";
+    return "Kiwi";
   }
 
 
@@ -30,6 +31,7 @@ function generators() {
 
   console.log(secondGen.next("Pears"));
   console.log(secondGen.next("Bananas"));
+  console.log(secondGen.next("coconut"));
 
 //{value: "Oranges", done: false}
 // {value: "Apples", done: false}
