@@ -14,17 +14,39 @@ import {generators} from "./generators.js";
 import {serialGeneratorExample} from "./serialGenerator.js";
 import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncAwait} from "./story.js";
 
+
+
+
+
+
+
+
+
+
+
+
+
 (function main () {
 	console.log("////////////// Start of program //////////////");
-    //serialGeneratorExample();
-	asyncWrapper(function* fruitGen() {
+  //generators(); 
+  serialGeneratorExample();
+  //loadStoryCallback();
+	//loadStoryPromise();
+	//asyncWrapper(loadStoryGenerator);
+
+	//loadStoryAsyncAwait();
+  
+
+
+	/*asyncWrapper(function* fruitGen() {
         let mainResult1 = yield promiseRequest(url + kiwiPath);
 
         let mainResult2 = yield promiseRequest(url + mainResult1);
         console.log("Generator result:", mainResult2);
-    });
-	// mainAsyncFetch(url, path);
-  //generators();
+    });*/
+	
+  // mainAsyncFetch(url, path);
+  
   //runGeneratorEx();
   //friday();
 
@@ -33,10 +55,7 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
   //coroutines(promiseGenerator);
   //mainAsync(url, path);
 
-	//loadStoryCallback();
-	//asyncWrapper(loadStoryGenerator);
-	//loadStoryPromise();
-	//loadStoryAsyncAwait();
+	
 	//synchronousCallbackErrorHandling();
 	//helloCallbackHell();
 
