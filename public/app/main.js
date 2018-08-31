@@ -14,18 +14,6 @@ import {generators} from "./generators.js";
 import {serialGeneratorExample} from "./serialGenerator.js";
 import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncAwait} from "./story.js";
 
-
-
-
-
-
-
-
-
-
-
-
-
 (function main () {
 	console.log("////////////// Start of program //////////////");
 
@@ -37,24 +25,15 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
 
 	//loadStoryAsyncAwait();
   
-
-
-
 	/*asyncWrapper(function* fruitGen() {
         let mainResult1 = yield promiseRequest(url + kiwiPath);
 
         let mainResult2 = yield promiseRequest(url + mainResult1);
         console.log("Generator result:", mainResult2);
     });*/
-
-	
   // mainAsyncFetch(url, path);
-  
   //runGeneratorEx();
   //friday();
-
-
-
   //coroutines(promiseGenerator);
   //mainAsync(url, path);
 
@@ -67,6 +46,27 @@ import {loadStoryCallback, loadStoryPromise, loadStoryGenerator, loadStoryAsyncA
   //it();
 	console.log("////////////// End of program //////////////");
 }());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // generators();
 // mainAsyncFetch(url, path);
 
